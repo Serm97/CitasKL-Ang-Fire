@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-body mt-1">
+        <p>  Ingrese los datos del paciente:</p>
+      <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
+  
+         <input type="hidden" name="$key" #$key="ngModel"[(ngModel)]="patientService.selectedPatient.$key"> 
+  
+        <div class="form-group">
+          <input type="number" class="form-control" name="document" #document="ngModel" [(ngModel)]="patientService.selectedPatient.document" placeholder="Documento del Paciente.">
+        </div>
+  
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="patientService.selectedPatient.name" placeholder="Nombre del Paciente.">
+        </div>
+  
+        <div class="form-group">
+            <input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="patientService.selectedPatient.lastname" placeholder="Apellido del Paciente.">
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="eps" #eps="ngModel" [(ngModel)]="patientService.selectedPatient.eps">
+            <option value="0">Seleccione EPS...</option>
+            <option value="Compensar">Compensar</option>
+            <option value="Cafam">Cafam</option>
+            <option value="Sura">Sura</option>
+            <option value="Medimas">Medimas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="sex" #sex="ngModel" [(ngModel)]="patientService.selectedPatient.sex">
+              <option value="0">Seleccione Genero...</option>
+              <option value="Mujer">Mujer</option>
+              <option value="Hombre">Hombre</option>
+              <option value="Indefinido">Indefinido</option>
+            </select>
+          </div>
+  
+        <div class="form-group">
+            <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="patientService.selectedPatient.age" placeholder="Edad">
+        </div>
+  
+        <div class="form-group">
+            <input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="patientService.selectedPatient.phone" placeholder="Telefono">
+        </div>  
+  
+        <div class="form-group">
+            <input type="email " class="form-control" name="email" #email="ngModel" [(ngModel)]="patientService.selectedPatient.email" placeholder="Correo Electronico">
+        </div>
+  
+        <div class="form-group">
+            <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="patientService.selectedPatient.address" placeholder="Dirección de Residencia">
+        </div>
+  
+        <div class="form-group">
+              <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-user"></i> Guardar
+              </button>
+  
+              <button class="btn btn-default float-left" type="reset" (click)="resetForm(patientForm)">
+                      <i class="fas fa-sync-alt"></i>
+              </button>
+        </div>
+      </form>
+    </div>
+  </div>

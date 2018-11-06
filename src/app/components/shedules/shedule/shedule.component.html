@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-body mt-1">
+        
+      <form #sheduleForm="ngForm" (ngSubmit)="onSubmit(sheduleForm)">
+  
+         <input type="hidden" name="$key" #$key="ngModel"[(ngModel)]="sheduleService.selectedShedule.$key"> 
+  
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="time" class="form-control" name="start" #start="ngModel" [(ngModel)]="sheduleService.selectedShedule.start">
+              </div>
+        
+              <div class="form-group col-md-6">
+                  <input type="time" class="form-control" name="end" #end="ngModel" [(ngModel)]="sheduleService.selectedShedule.end">
+              </div>
+        </div>
+  
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="date" class="form-control" name="dateschedule" #dateschedule="ngModel" [(ngModel)]="sheduleService.selectedShedule.dateschedule">
+            </div>
+    
+            <div class="form-group col-md-6">
+              <label for="">
+                <input type="checkbox" class="" name="available" #available="ngModel" [(ngModel)]="sheduleService.selectedShedule.available">
+                Disponible
+              </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="eps" #eps="ngModel" [(ngModel)]="sheduleService.selectedShedule.eps">
+            <option value="0">Seleccione Doctor...</option>
+            <option value="Compensar">Sergio Ramirez</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+              <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-user"></i> Guardar
+              </button>
+  
+              <button class="btn btn-default float-left" type="reset" (click)="resetForm(sheduleForm)">
+                      <i class="fas fa-sync-alt"></i>
+              </button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body mt-1">
+      <p>   Ingrese los datos del doctor:</p>
+    <form #doctorForm="ngForm" (ngSubmit)="onSubmit(doctorForm)">
+
+       <input type="hidden" name="$key" #$key="ngModel"[(ngModel)]="doctorService.selectedDoctor.$key"> 
+
+      <div class="form-group">
+        <input type="number" class="form-control" name="document" #document="ngModel" [(ngModel)]="doctorService.selectedDoctor.document" placeholder="Documento del Doctor.">
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="doctorService.selectedDoctor.name" placeholder="Nombre del Doctor.">
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="doctorService.selectedDoctor.lastname" placeholder="Apellido del Doctor.">
+      </div>
+
+      <div class="form-group">
+          <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="doctorService.selectedDoctor.age" placeholder="Edad">
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="doctorService.selectedDoctor.phone" placeholder="Telefono">
+      </div>  
+
+      <div class="form-group">
+          <input type="email " class="form-control" name="email" #email="ngModel" [(ngModel)]="doctorService.selectedDoctor.email" placeholder="Correo Electronico">
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="doctorService.selectedDoctor.address" placeholder="Dirección de Residencia">
+      </div>
+
+      <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-user-md"></i> Guardar
+            </button>
+
+            <button class="btn btn-default float-left" type="reset" (click)="resetForm(doctorForm)">
+                    <i class="fas fa-sync-alt"></i>
+            </button>
+      </div>
+    </form>
+  </div>
+</div>
